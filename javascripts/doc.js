@@ -58,6 +58,9 @@ $("#search-field").keyup(function (e) {
        if (services[system_names[i]].url != null) { // if present, description is a better option
         url = decodeURIComponent(services[system_names[i]].url.replace(/\+/g, '%20'));
        }
+       if (services[system_names[i]].serviceEndpoint != null) { // serviceEndpoint
+        serviceEndpoint = decodeURIComponent(services[system_names[i]].serviceEndpoint.replace(/\+/g, '%20'));
+       }
        if (services[system_names[i]].supportEmail != null) { // if present, description is a better option
         supportEmail = decodeURIComponent(services[system_names[i]].supportEmail.replace(/\+/g, '%20'));
        }
@@ -73,7 +76,14 @@ $("#search-field").keyup(function (e) {
         state = 'deprecatedv2.png';
       }
 
-       $("<div class='api-wrapper'>").text(name).append("<div class='card-body bg-catalog api-body'><span>" + description + "</span><hr><span class='pull-left'><b>Owner:</b> "+supportEmail+ "</span><span class='pull-right'><b>Authentication:</b> "+ appsIdentifier +"</span></div>").append("<a class='card-footer text-white clearfix small z-1' href='"+ url +"' target='_blank'><span class='pull-left'>Download</span><span class='pull-right'></span></a></div>").appendTo($("<a>", { "href": "?api=" + system_names[i] }).appendTo($(".api-list")));
+       $("<div class='api-wrapper'><h2>").text(name).append("</h2><div class='pull-right'><a href=?api=" + system_names[i] + ">View Details >></a></div> " + 
+       "<div class='card-body bg-catalog api-body'><span>" + description + "</span><hr>" + 
+       "<div class='card-body bg-catalog api-body'><span> Service Endpoint: <br> " + serviceEndpoint + "</span><hr>" + 
+       "<span class='pull-left'><b>Owner:</b> "+supportEmail+ "</span><span class='pull-right'><b>Authentication:</b> "+ appsIdentifier +"</span></div>")
+       .append("<a class='card-footer text-white clearfix small z-1' href='"+ url +"' target='_blank'>" + 
+       "<span class='pull-left'>Download</span><span class='pull-right'></span></a></div>")
+       
+       .appendTo($(".api-list"));
     }
   }
 
