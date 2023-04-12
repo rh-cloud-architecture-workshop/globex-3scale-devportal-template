@@ -606,7 +606,7 @@ ul.list-auth-provider {
 }
 
 .fa-keycloak:before {
-  content: '‹›';
+  content: '??';
   font-size: 18px;
   line-height: 0;
   top: 1px;
