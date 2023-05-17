@@ -42,8 +42,8 @@
         <p>Select a service to create an application.</p>
 
 
-
-        {% for service in provider.services %}
+        {% assign services = provider.services | | sort: "name" %}
+        {% for service in services %}
           <hr>
           <div class="card">
             <div class="card-body">
