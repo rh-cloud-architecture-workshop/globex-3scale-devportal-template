@@ -76,7 +76,7 @@ $("#search-field").keyup(function (e) {
         state = 'deprecatedv2.png';
       }
 
-       $("<div class='api-wrapper'><h2>").text(name).append("</h2><div class='pull-right'><a href=?api=" + system_names[i] + ">View Details >></a></div> " + 
+      $("<div class='api-wrapper'><h2>").text(name).append("</h2><div class='pull-right'><a href=?api=" + system_names[i].replace(/ /g, '%20') + ">View Details >></a></div> " + 
        "<div class='card-body bg-catalog api-body'><span>" + description + "</span><hr>" + 
        "<div class='card-body bg-catalog api-body'><span> Service Endpoint: <br> " + serviceEndpoint + "</span><hr>" + 
        "<span class='pull-left'><b>Owner:</b> "+supportEmail+ "</span><span class='pull-right'><b>Authentication:</b> "+ appsIdentifier +"</span></div>")
